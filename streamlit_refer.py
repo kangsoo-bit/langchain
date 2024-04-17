@@ -24,7 +24,7 @@ def main():
     page_title="DirChat",
     page_icon=":books:")
 
-    st.title("_Osstem Implant MPMS연구소 :red[QA Chat]_ :books:")
+    st.title("_Osstem MPMS연구소 :red[QA Chat]_ :books:")
 
     if "conversation" not in st.session_state:
         st.session_state.conversation = None
