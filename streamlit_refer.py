@@ -21,7 +21,7 @@ from langchain.memory import StreamlitChatMessageHistory
 
 def main():
     st.set_page_config(
-    page_title="DirChat",
+    page_title="Osstem Implant",
     page_icon=":books:")
 
     st.title("_Osstem [MPMS연구소] :red[QA Chat]_ :books:")
@@ -47,7 +47,7 @@ def main():
         files_text = get_text(uploaded_files)
         text_chunks = get_text_chunks(files_text)
         vetorestore = get_vectorstore(text_chunks)
-     
+
         st.session_state.conversation = get_conversation_chain(vetorestore,openai_api_key) 
 
         st.session_state.processComplete = True
