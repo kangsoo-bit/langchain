@@ -25,7 +25,7 @@ def main():
     page_icon=":books:")
 
     st.title("_Osstem [MPMS연구소] :red[QA Chat]_ :books:")
-    st.title("Model: gpt-4-turbo(2024-04-16)")
+    st.title("Model: gpt-4-turbo(2024-04-19)")
 
     if "conversation" not in st.session_state:
         st.session_state.conversation = None
@@ -112,6 +112,9 @@ def get_text(docs):
             documents = loader.load_and_split()
         elif '.pptx' in doc.name:
             loader = UnstructuredPowerPointLoader(file_name)
+            documents = loader.load_and_split()
+        elif '.xlsx' in doc.name:
+            loader = UnstructuredExcelLoader(file_name)
             documents = loader.load_and_split()
 
         doc_list.extend(documents)
