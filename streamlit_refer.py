@@ -25,7 +25,7 @@ def main():
     page_icon=":books:")
 
     st.title("_Osstem [MPMS연구소] :red[QA Chat]_ :books:")
-    st.title("_Model: gpt-4-turbo(2024-04-16)")
+    st.title("Model: gpt-4-turbo(2024-04-16)")
 
     if "conversation" not in st.session_state:
         st.session_state.conversation = None
@@ -121,7 +121,7 @@ def get_text(docs):
 def get_text_chunks(text):
     text_splitter = RecursiveCharacterTextSplitter(
         chunk_size=900,
-        chunk_overlap=100,
+        chunk_overlap=0,
         length_function=tiktoken_len
     )
     chunks = text_splitter.split_documents(text)
@@ -150,8 +150,6 @@ def get_conversation_chain(vetorestore,openai_api_key):
         )
 
     return conversation_chain
-
-
 
 if __name__ == '__main__':
     main()
