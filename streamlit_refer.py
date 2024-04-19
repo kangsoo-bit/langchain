@@ -28,7 +28,7 @@ def main():
     page_icon=":books:")
 
     st.title("_Osstem [MPMS연구소] :red[QA Chat]_ :books:")
-    st.title("Model: gpt-4-turbo(2024-04-19) v0.1.9")
+    st.title("Model: gpt-4-turbo(2024-04-19) v0.1.10")
 
     if "conversation" not in st.session_state:
         st.session_state.conversation = None
@@ -90,7 +90,7 @@ def main():
                     elif len(source_documents) == 2:
                         st.markdown(source_documents[0].metadata['source'], help = source_documents[0].page_content)
                         st.markdown(source_documents[1].metadata['source'], help = source_documents[1].page_content)
-                    elif len(source_documents) > 3:
+                    elif len(source_documents) == 3:
                         st.markdown(source_documents[0].metadata['source'], help = source_documents[0].page_content)
                         st.markdown(source_documents[1].metadata['source'], help = source_documents[1].page_content)
                         st.markdown(source_documents[2].metadata['source'], help = source_documents[2].page_content)
