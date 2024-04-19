@@ -28,7 +28,7 @@ def main():
     page_icon=":books:")
 
     st.title("_Osstem [MPMS연구소] :red[QA Chat]_ :books:")
-    st.title("Model: gpt-4-turbo(2024-04-19) v0.1.8")
+    st.title("Model: gpt-4-turbo(2024-04-19) v0.1.9")
 
     if "conversation" not in st.session_state:
         st.session_state.conversation = None
@@ -79,8 +79,9 @@ def main():
                 result = chain({"question": query})
                 with get_openai_callback() as cb:
                     st.session_state.chat_history = result['chat_history']
-                response = result['answer'] + str(len(source_documents))
+
                 source_documents = result['source_documents']
+                response = result['answer'] + str(len(source_documents))
 
                 st.markdown(response)
                 with st.expander("참고 문서 확인"):
