@@ -10,7 +10,7 @@ from langchain.document_loaders import Docx2txtLoader
 from langchain.document_loaders import UnstructuredPowerPointLoader
 
 import pandas as pd
-from langchain_community.document_loaders import DataFrameLoader
+from langchain.document_loaders import DataFrameLoader
 
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.embeddings import HuggingFaceEmbeddings
