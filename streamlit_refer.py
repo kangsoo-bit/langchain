@@ -28,7 +28,7 @@ def main():
     page_icon=":books:")
 
     st.title("_Osstem [MPMS연구소] :red[QA Chat]_ :books:")
-    st.title("Model: gpt-4-turbo(2024-04-19) v0.1.10")
+    st.title("Model: gpt-4-turbo(2024-04-19) v0.1.11")
 
     if "conversation" not in st.session_state:
         st.session_state.conversation = None
@@ -122,7 +122,7 @@ def get_text(docs):
             loader = UnstructuredPowerPointLoader(file_name)
             documents = loader.load_and_split()
         elif '.xlsx' in doc.name:
-            df = pd.read_excel(file_name, sheet_name='행위 고시', header=0)
+            df = pd.read_excel(file_name, sheet_name='통합고시', header=0)
             #loader = UnstructuredExcelLoader(file_name, mode="elements")
             loader = DataFrameLoader(df, page_content_column="주요내용")
             documents = loader.load_and_split()
