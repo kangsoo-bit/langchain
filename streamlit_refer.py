@@ -28,7 +28,7 @@ def main():
     page_icon=":books:")
 
     st.title("_Osstem [MPMS연구소] :red[QA Chat]_ :books:")
-    st.title("Model: gpt-4-turbo(2024-04-19) v0.1.2")
+    st.title("Model: gpt-4-turbo(2024-04-19) v0.1.3")
 
     if "conversation" not in st.session_state:
         st.session_state.conversation = None
