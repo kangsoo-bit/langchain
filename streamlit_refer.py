@@ -84,11 +84,15 @@ def main():
 
                 st.markdown(response)
                 with st.expander("참고 문서 확인"):
-                    st.markdown(source_documents[0].metadata['source'], help = source_documents[0].page_content)
-                    st.markdown(source_documents[1].metadata['source'], help = source_documents[1].page_content)
-                    st.markdown(source_documents[2].metadata['source'], help = source_documents[2].page_content)
-                    
-
+                    if source_documents.__len__() == 1:
+                        st.markdown(source_documents[0].metadata['source'], help = source_documents[0].page_content)
+                    elif source_documents.__len__() == 2:
+                        st.markdown(source_documents[0].metadata['source'], help = source_documents[0].page_content)
+                        st.markdown(source_documents[1].metadata['source'], help = source_documents[1].page_content)
+                    elif source_documents.__len__() > 3:
+                        st.markdown(source_documents[0].metadata['source'], help = source_documents[0].page_content)
+                        st.markdown(source_documents[1].metadata['source'], help = source_documents[1].page_content)
+                        st.markdown(source_documents[2].metadata['source'], help = source_documents[2].page_content)
 
 # Add assistant message to chat history
         st.session_state.messages.append({"role": "assistant", "content": response})
