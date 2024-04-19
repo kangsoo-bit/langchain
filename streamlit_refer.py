@@ -8,7 +8,9 @@ from langchain.chat_models import ChatOpenAI
 from langchain.document_loaders import PyPDFLoader
 from langchain.document_loaders import Docx2txtLoader
 from langchain.document_loaders import UnstructuredPowerPointLoader
-from langchain.document_loaders import UnstructuredExcelLoader
+
+import pandas as pd
+from langchain_community.document_loaders import DataFrameLoader
 
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.embeddings import HuggingFaceEmbeddings
@@ -115,7 +117,9 @@ def get_text(docs):
             loader = UnstructuredPowerPointLoader(file_name)
             documents = loader.load_and_split()
         elif '.xlsx' in doc.name:
-            loader = UnstructuredExcelLoader(file_name, mode="elements")
+            df = pd.read_excel(file_name, sheet_name='행위 고시', header=0)
+            #loader = UnstructuredExcelLoader(file_name, mode="elements")
+            loader = DataFrameLoader(df, page_content_column="번호")
             documents = loader.load_and_split()
 
         doc_list.extend(documents)
