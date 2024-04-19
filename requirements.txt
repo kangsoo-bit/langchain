@@ -9,5 +9,4 @@ openai
 pypdf
 loguru
 docx2txt
-openpyxl
 pandas
